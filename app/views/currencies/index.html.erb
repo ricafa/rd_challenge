@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_currency_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Currency
+  <% end %>
+  <h1>Listing currencies</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Description</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @currencies) do |currency| %>
+            <td><%= currency.description %></td>
+            <td><%= link_to 'Show', currency %></td>
+        <td><%= link_to 'Edit', edit_currency_path(currency) %></td>
+        <td><%= link_to 'Destroy', currency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

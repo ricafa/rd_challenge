@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_management_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Management
+  <% end %>
+  <h1>Listing managements</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Product</th>
+            <th>Company</th>
+            <th>Currency</th>
+            <th>Price</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @managements) do |management| %>
+            <td><%= management.product %></td>
+            <td><%= management.company %></td>
+            <td><%= management.currency %></td>
+            <td><%= management.price %></td>
+            <td><%= link_to 'Show', management %></td>
+        <td><%= link_to 'Edit', edit_management_path(management) %></td>
+        <td><%= link_to 'Destroy', management, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

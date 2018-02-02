@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to managements_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_management_path(@management), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show management</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Product:</dt>
+  <dd><%= @management.product %></dd>
+
+  <dt>Company:</dt>
+  <dd><%= @management.company %></dd>
+
+  <dt>Currency:</dt>
+  <dd><%= @management.currency %></dd>
+
+  <dt>Price:</dt>
+  <dd><%= @management.price %></dd>
+
+</dl>
