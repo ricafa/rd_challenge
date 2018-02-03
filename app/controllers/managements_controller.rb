@@ -4,7 +4,7 @@ class ManagementsController < ApplicationController
   # GET /managements
   # GET /managements.json
   def index
-    @managements = Management.all
+    @managements = Management.includes([:currency, :product, :company]).all
   end
 
   # GET /managements/1

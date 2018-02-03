@@ -1,19 +1,16 @@
 class Api::V1::ProductsController < ActionController::API
   before_action :set_product, only: [:show, :update, :destroy]
 
-  # GET /products
   def index
-    @products = Product.all
+    @products = Product.all.order(:description)
 
     render json: @products
   end
 
-  # GET /products/1
   def show
     render json: @product
   end
 
-  # POST /products
   def create
     @product = Product.new(product_params)
 
@@ -24,7 +21,6 @@ class Api::V1::ProductsController < ActionController::API
     end
   end
 
-  # PATCH/PUT /products/1
   def update
     if @product.update(product_params)
       render json: @product
@@ -33,18 +29,21 @@ class Api::V1::ProductsController < ActionController::API
     end
   end
 
-  # DELETE /products/1
   def destroy
-    @product.destroy
+    if @product.destroy
+    	render json: {msg: "Product deleted successfully"}, status: :ok
+    else
+    	render json: {msg: "The product can't be deleted"}, status: :error
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+    	
+      #@product = Product.find(params[:id])    
+      @product = Product.find(params.require(:id))    
     end
 
-    # Only allow a trusted parameter "white list" through.
     def product_params
       params.require(:product).permit(:description)
     end

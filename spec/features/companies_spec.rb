@@ -21,3 +21,14 @@ feature 'Create company ' do
 		expect(page).to have_content("Cnpj can't be blank")
 	end
 end
+
+feature 'List companies' do
+	before do
+		visit '/companies'
+	end
+
+	scenario 'all of them' do
+		expect(page).to have_content('Name')
+	end
+
+end

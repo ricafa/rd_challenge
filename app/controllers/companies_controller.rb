@@ -4,7 +4,9 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    page = (params[:page].present? ? params[:page] : 1)
+
+    @companies = Company.page(params[:page]).per(2).order(:name)
   end
 
   # GET /companies/1
