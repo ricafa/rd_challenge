@@ -1,0 +1,1 @@
+managements_controller.rb
