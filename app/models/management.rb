@@ -3,5 +3,5 @@ class Management < ApplicationRecord
   belongs_to :company
   belongs_to :currency
 
-  validates_presence_of :company, :product, :currency, :price
+  validates_presence_of :company, :product, :currency
 end

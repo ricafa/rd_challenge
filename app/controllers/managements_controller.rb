@@ -69,6 +69,6 @@ class ManagementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def management_params
-      params.require(:management).permit(:product_id, :company_id, :currency_id, :price)
+      params.require(:management).permit(:product_id, :company_id, :currency_id)
     end
 end

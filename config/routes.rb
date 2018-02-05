@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :currencies
   resources :companies
   resources :products
-
+  resources :productsprices
   namespace :api do
   	namespace :v1 do
   		resources :managements

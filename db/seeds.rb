@@ -13,17 +13,22 @@ if Product.count < 5
 		Product.create( description: "Product0#{i}")
 		Company.create(name: "Company0#{i}", cnpj: cnpj[i] )
 	end
-	#currenciesz
+
+	#currencies
 	Currency.create(description: 'USD')
 	Currency.create(description: 'BRL')
 	Currency.create(description: 'EUR')
+
+	#Products Price
+	Productsprice.create(product: Product.find(1), currency: Currency.find(1), price: 17.90)
+	Productsprice.create(product: Product.find(1), currency: Currency.find(2), price: 250.90)
+	Productsprice.create(product: Product.find(1), currency: Currency.find(3), price: 687.90 )
 
 	#managements
 	5.times do |i|
 		Management.create(company:  Company.order("RANDOM()").limit(1).first, 
 											product:  Product.order("RANDOM()").limit(1).first, 
-											currency: Currency.order("RANDOM()").limit(1).first,
-											price: 		rand(100))
+											currency: Currency.order("RANDOM()").limit(1).first)
 	end
 	puts 'Currencies, Companies, Products and Managements succesfully created.'
 else

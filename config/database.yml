@@ -83,3 +83,4 @@ production:
   database: rd_challenge_production
   username: rd_challenge
   password: <%= ENV['RD_CHALLENGE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
